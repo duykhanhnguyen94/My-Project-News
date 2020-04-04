@@ -17,12 +17,15 @@ class SliderController extends Controller
         $this->model = new MainModel();
         view()->share('controllerName' , $this->controllerName);
     }
-
+    
     public function index(){
-        $test = $this->model->listItems(null, ['task' => 'admin-list-item']);
-        echo '<pre style="color:red">';
-        print_r($test);
-        echo '</pre>';
-        return view($this->pathViewController . 'index');
+        // $test = $this->model->listItems(null, ['task' => 'admin-list-item']);
+        $items = $this->model->listItems(null, ['task' => 'admin-list-item']);
+        // echo '<pre style="color:red">';
+        // print_r($items);
+        // echo '</pre>';
+        return view($this->pathViewController . 'index', [
+            'items' => $items,
+        ]);
     }
 }
