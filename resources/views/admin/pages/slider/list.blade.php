@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-
+            @if(count($items) > 0)
             <tr class="odd pointer">
                 <td>1</td>
                 <td width="40%">
@@ -42,7 +42,13 @@
                     </div>
                 </td>
             </tr>
-
+            @else
+            <tr>
+                <td colspan="6" style="text-align: center">
+                    Dữ liệu đang được cập nhật
+                </td>
+            </tr>
+            @endif
             </tbody>
         </table>
     </div>
