@@ -12,8 +12,15 @@ class SliderModel extends Model
     const CREATED_AT = 'cteated';
     const UPDATED_AT = 'modified';
 
+    public function listItems($params = null, $option){
+        $result = null;
+        if($option['task'] == 'admin-list-item'){
+            $result = $this->select('*')->get()->toArray();
+        }
+
+        return $result;
+    }
 
 
 
-    
 }
