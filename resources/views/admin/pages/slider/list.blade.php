@@ -14,15 +14,27 @@
             </thead>
             <tbody>
             @if(count($items) > 0)
+            @foreach($items as $key => $val)
+            @php
+            // dd($val);
+                $index       = $key + 1;
+                $name        = $val['name'];
+                $description = $val['description'];
+                $status      = $val['status'];
+                $created     = $val['created'];
+                $created_by  = $val['created_by'];
+                $link        = $val['link'];
+            @endphp
             <tr class="odd pointer">
                 <td>1</td>
                 <td width="40%">
-                    <p><strong>Name:</strong> Ưu đãi học phí</p>
-                    <p><strong>Description:</strong> Tổng hợp các trương trình ưu đãi học phí hàng tuần...</p>
-                    <p><strong>Link:</strong> https://zendvn.com/uu-dai-hoc-phi-tai-zendvn/</p>
+                    <p><strong>Name:</strong>{{ $name }}</p>
+                    <p><strong>Description:</strong>{{ $description }}</p>
+                    <p><strong>Link:</strong>{{ $link }}</p>
                     <p><img src="http://proj_news.xyz/images/slider/LWi6hINpXz.jpeg" alt="Ưu đãi học phí" class="zvn-thumb"></p>
                 </td>
-                <td><a href="http://proj_news.xyz/admin123/slider/change-status-active/3" type="button" class="btn btn-round btn-success">Kích hoạt</a></td>
+                <td><a href="http://proj_news.xyz/admin123/slider/change-status-active/3" type="button" class="btn btn-round btn-success">
+                {{ $status }}</a></td>
                 <td>
                     <p><i class="fa fa-user"></i> admin</p>
                     <p><i class="fa fa-clock-o"></i> 24/04/2019</p>
@@ -42,6 +54,7 @@
                     </div>
                 </td>
             </tr>
+            @endforeach
             @else
                 @include('admin.templates.list_empty', ['colspan' => 6])
             @endif
