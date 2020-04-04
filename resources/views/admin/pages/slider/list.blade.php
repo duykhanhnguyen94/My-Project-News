@@ -1,60 +1,48 @@
+
 <div class="x_content">
     <div class="table-responsive">
         <table class="table table-striped jambo_table bulk_action">
             <thead>
-            <tr class="headings">
-                <th class="column-title">#</th>
-                <th class="column-title">Username</th>
-                <th class="column-title">Email</th>
-                <th class="column-title">Fullname</th>
-                <th class="column-title">Avatar</th>
-                <th class="column-title">Trạng thái</th>
-                <th class="column-title">Level</th>
-                <th class="column-title">Tạo mới</th>
-                <th class="column-title">Chỉnh sửa</th>
-                <th class="column-title">Hành động</th>
-            </tr>
+                <tr class="headings">
+                    <th class="column-title">#</th>
+                    <th class="column-title">Slider Info</th>
+                    <th class="column-title">Trạng thái</th>
+                    <th class="column-title">Tạo mới</th>
+                    <th class="column-title">Chỉnh sửa</th>
+                    <th class="column-title">Hành động</th>
+                </tr>
             </thead>
             <tbody>
-            <tr class="even pointer">
-                <td class="">1</td>
-                <td width="10%">admin</td>
-                <td>admin@gmail.com</td>
-                <td>admin</td>
-                <td width="5%"><img src="img/img.jpg"
-                                    alt="admin" class="zvn-thumb"></td>
-                <td><a href="/change-status-active/1"
-                       type="button" class="btn btn-round btn-success">Active</a></td>
-                <td width="10%">
-                    <select name="select_change_attr" class="form-control"
-                            data-url="/change-level-value_new/1">
-                        <option value="admin" selected="selected">Admin</option>
-                        <option value="member">Member</option>
-                    </select>
+
+            <tr class="odd pointer">
+                <td>1</td>
+                <td width="40%">
+                    <p><strong>Name:</strong> Ưu đãi học phí</p>
+                    <p><strong>Description:</strong> Tổng hợp các trương trình ưu đãi học phí hàng tuần...</p>
+                    <p><strong>Link:</strong> https://zendvn.com/uu-dai-hoc-phi-tai-zendvn/</p>
+                    <p><img src="http://proj_news.xyz/images/slider/LWi6hINpXz.jpeg" alt="Ưu đãi học phí" class="zvn-thumb"></p>
+                </td>
+                <td><a href="http://proj_news.xyz/admin123/slider/change-status-active/3" type="button" class="btn btn-round btn-success">Kích hoạt</a></td>
+                <td>
+                    <p><i class="fa fa-user"></i> admin</p>
+                    <p><i class="fa fa-clock-o"></i> 24/04/2019</p>
                 </td>
                 <td>
                     <p><i class="fa fa-user"></i> admin</p>
-                    <p><i class="fa fa-clock-o"></i> 10/12/2014</p>
-                </td>
-                <td>
-                    <p><i class="fa fa-user"></i> hailan</p>
-                    <p><i class="fa fa-clock-o"></i> 10/12/2014</p>
+                    <p><i class="fa fa-clock-o"></i> 24/04/2019</p>
                 </td>
                 <td class="last">
-                    <div class="zvn-box-btn-filter"><a
-                            href="/form/1"
-                            type="button" class="btn btn-icon btn-success" data-toggle="tooltip"
-                            data-placement="top" data-original-title="Edit">
-                        <i class="fa fa-pencil"></i>
-                    </a><a href="/delete/1"
-                           type="button" class="btn btn-icon btn-danger btn-delete"
-                           data-toggle="tooltip" data-placement="top"
-                           data-original-title="Delete">
-                        <i class="fa fa-trash"></i>
-                    </a>
+                    <div class="zvn-box-btn-filter">
+                        <a href="http://proj_news.xyz/admin123/slider/form/3" type="button" class="btn btn-icon btn-success" data-toggle="tooltip" data-placement="top" data-original-title="Edit">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a href="http://proj_news.xyz/admin123/slider/delete/3" type="button" class="btn btn-icon btn-danger btn-delete" data-toggle="tooltip" data-placement="top" data-original-title="Delete">
+                            <i class="fa fa-trash"></i>
+                        </a>
                     </div>
                 </td>
             </tr>
+
             </tbody>
         </table>
     </div>
