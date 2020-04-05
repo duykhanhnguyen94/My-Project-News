@@ -1,5 +1,5 @@
 
-@php
+ @php
     use App\Helpers\Template as Template;
 @endphp
 
@@ -28,7 +28,7 @@
                 $created     = $val['created'];
                 $created_by  = $val['created_by'];
                 $link        = $val['link']; 
-                $created = Template::showItemsHistory($val['created_by'], $val['created']);
+                $created  = Template::showItemsHistory($val['created_by'], $val['created']);
                 $modified = Template::showItemsHistory($val['modified_by'], $val['modified']);
             @endphp
             <tr class="odd pointer">

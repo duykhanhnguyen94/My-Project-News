@@ -6,7 +6,7 @@ class Template{
     public static function showItemsHistory($by, $time){
         $xhtml = null;
         $xhtml = sprintf('<p><i class="fa fa-user"></i> %s</p>
-                        <p><i class="fa fa-clock-o"></i> %s</p>', $by, $time);
+                        <p><i class="fa fa-clock-o"></i> %s</p>', $by, date(config('myConfig.format.long_time'), strtotime($time)));
         return $xhtml;
     }
     // <p><i class="fa fa-user"></i> admin</p>
