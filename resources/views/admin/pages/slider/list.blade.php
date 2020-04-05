@@ -36,6 +36,7 @@
                 $modified = Template::showItemsHistory($modified_by, $modified);
                 $thumb    = Template::showItemsThumb($thumb, $name);
                 $status   = Template::showButtonStatus($id, $controllerName, $status);
+                $button   = Template::showButtonAction($id, $controllerName);
             @endphp
             <tr class="odd pointer">
                 <td>{{$index}}</td>
@@ -59,14 +60,15 @@
                     {!! $modified !!}
                 </td>
                 <td class="last">
-                    <div class="zvn-box-btn-filter">
+                    {!! $button !!}
+                    {{-- <div class="zvn-box-btn-filter">
                         <a href="http://proj_news.xyz/admin123/slider/form/3" type="button" class="btn btn-icon btn-success" data-toggle="tooltip" data-placement="top" data-original-title="Edit">
                             <i class="fa fa-pencil"></i>
                         </a>
                         <a href="http://proj_news.xyz/admin123/slider/delete/3" type="button" class="btn btn-icon btn-danger btn-delete" data-toggle="tooltip" data-placement="top" data-original-title="Delete">
                             <i class="fa fa-trash"></i>
                         </a>
-                    </div>
+                    </div> --}}
                 </td>
             </tr>
             @endforeach

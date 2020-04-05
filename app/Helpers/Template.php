@@ -37,9 +37,29 @@ class Template{
         return $xhtml;
     }
     // <a href="http://proj_news.xyz/admin123/slider/change-status-active/3" type="button" class="btn btn-round btn-success">active</a>
-    public static function showButtonAction($controllerName, $id){
+    public static function showButtonAction($id, $controllerName){
+        $tmplButton = [
+            'edit' => ['class'=>'btn-warning','title'=>'Edit','icon'=>'fa-pencil','route-name'=>'slider/form'],
+            'delete' => ['class'=>'btn-danger','title'=>'Delete','icon'=>'fa-trash','route-name'=>'slider/delete'],
+            'view' => ['class'=>'btn-info','title'=>'View','icon'=>'fa-eye','route-name'=>'slider/view'],
+        ];
+        $buttonInAera = [
+            // 'slider'  => ['edit', 'delete', 'view'],
+            'slider'  => ['edit', 'delete'],
+            'default' => ['edit', 'delete'],
+        ];
+        $controllerName = array_key_exists($controllerName, $buttonInAera) ? $controllerName : 'default';
+        $listButton = $buttonInAera[$controllerName];   // ['edit', delete]
+
         $xhtml = '<div class="zvn-box-btn-filter">';
-        $xhtml = sprintf('');
+        foreach($listButton as $btn){
+            $currentButton = $tmplButton[$btn];
+            // echo '<pre style="color:red">';
+            // print_r($currentButton);
+            // echo '</pre>';
+            $xhtml .= sprintf(' <a href="#" type="button" class="btn btn-icon %s" data-toggle="tooltip" data-placement="top" data-original-title="%s">
+            <i class="fa %s"></i></a>', $currentButton['class'], $currentButton['title'], $currentButton['icon']);
+        }
         $xhtml .= '</div>';
         return $xhtml;
     }
