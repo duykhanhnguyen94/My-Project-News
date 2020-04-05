@@ -22,16 +22,20 @@
             @php
             // dd($val);
                 $index       = $key + 1;
+                $id          = $val['id'];
                 $name        = $val['name'];
                 $description = $val['description'];
                 $status      = $val['status'];
                 $created     = $val['created'];
                 $created_by  = $val['created_by'];
+                $modified_by = $val['modified_by'];
+                $modified    = $val['modified'];
                 $link        = $val['link']; 
-                $created  = Template::showItemsHistory($val['created_by'], $val['created']);
-                $modified = Template::showItemsHistory($val['modified_by'], $val['modified']);
-                $thumb    = Template::showItemsThumb($val['thumb'], $val['name']);
-                $status   = Template::showButtonStatus($val['id'], $controllerName, $val['status']);
+                $thumb       = $val['thumb']; 
+                $created  = Template::showItemsHistory($created_by, $created);
+                $modified = Template::showItemsHistory($modified_by, $modified);
+                $thumb    = Template::showItemsThumb($thumb, $name);
+                $status   = Template::showButtonStatus($id, $controllerName, $status);
             @endphp
             <tr class="odd pointer">
                 <td>{{$index}}</td>
