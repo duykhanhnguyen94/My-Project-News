@@ -20,12 +20,14 @@ class SliderController extends Controller
     
     public function index(){
         // $test = $this->model->listItems(null, ['task' => 'admin-list-item']);
-        $items = $this->model->listItems(null, ['task' => 'admin-list-item']);
+        $items            = $this->model->listItems(null, ['task' => 'admin-list-item']);
+        $countItemsStatus = $this->model->countItems(null, ['task' => 'admin-count-item-group-by-status']);
         // echo '<pre style="color:red">';
-        // print_r($items);
+        // print_r($countItemsStatus);
         // echo '</pre>';
         return view($this->pathViewController . 'index', [
-            'items' => $items,
+            'items'            => $items,
+            'countItemsStatus' => $countItemsStatus,
         ]);
     }
 }

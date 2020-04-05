@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class SliderModel extends Model
 {
@@ -16,13 +17,27 @@ class SliderModel extends Model
         $result = null;
         if($option['task'] == 'admin-list-item'){
             $result = $this->select('s.id', 's.name', 's.description', 's.link', 's.thumb', 's.status', 's.created', 's.created_by', 's.modified', 's.modified_by')
-            ->where('id', '>', 4)
+            // ->where('id', '>', 4)
             ->get()
             ->toArray();
         }
 
         return $result;
     }
+
+    public function countItems($params = null, $option){
+        $result = null;
+        if($option['task'] == 'admin-count-item-group-by-status'){
+            $result = $this->select(DB::raw('count(id) as count, status'))
+            ->groupBy('status')
+            ->get()
+            ->toArray();
+        }
+
+        return $result;
+    }
+
+    
 
 
 
