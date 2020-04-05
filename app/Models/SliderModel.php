@@ -24,7 +24,7 @@ class SliderModel extends Model
             if(isset($params['filter']['status']) && $params['filter']['status'] != 'all'){
                 $query->where('status', '=', $params['filter']['status']);
             }
-            $result = $query->get()->toArray();
+            $result = $query->orderBy('id', 'desc')->paginate($params['pagination']['totalItemPerPage']);
         }
 
         return $result;
