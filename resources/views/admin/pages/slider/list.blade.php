@@ -30,6 +30,7 @@
                 $link        = $val['link']; 
                 $created  = Template::showItemsHistory($val['created_by'], $val['created']);
                 $modified = Template::showItemsHistory($val['modified_by'], $val['modified']);
+                $thumb = Template::showItemsThumb($val['thumb'], $val['name'])
             @endphp
             <tr class="odd pointer">
                 <td>{{$index}}</td>
@@ -37,14 +38,16 @@
                     <p><strong>Name:</strong>{{ $name }}</p>
                     <p><strong>Description:</strong>{{ $description }}</p>
                     <p><strong>Link:</strong>{{ $link }}</p>
-                    <p><img src="http://proj_news.xyz/images/slider/LWi6hINpXz.jpeg" alt="Ưu đãi học phí" class="zvn-thumb"></p>
+                    <p>
+                        {!! $thumb !!}
+                        {{-- <img src="http://proj_news.xyz/images/slider/LWi6hINpXz.jpeg" alt="Ưu đãi học phí" class="zvn-thumb"> --}}
+                    </p>
                 </td>
-                <td><a href="http://proj_news.xyz/admin123/slider/change-status-active/3" type="button" class="btn btn-round btn-success">
+                <td>
+                    <a href="http://proj_news.xyz/admin123/slider/change-status-active/3" type="button" class="btn btn-round btn-success">
                 {{ $status }}</a></td>
                 <td>
                     {!! $created !!}
-                    {{-- <p><i class="fa fa-user"></i> admin</p>
-                    <p><i class="fa fa-clock-o"></i> 24/04/2019</p> --}}
                 </td>
                 <td>
                     {!! $modified !!}
