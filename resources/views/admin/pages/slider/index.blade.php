@@ -1,7 +1,7 @@
 
 @php
     use App\Helpers\Template as Template;
-    $xhtmlButtonFilter = Template::showButtonFilter($countItemsStatus); 
+    $xhtmlButtonFilter = Template::showButtonFilter($countItemsStatus, $controllerName); 
     // echo '************** this is a test **************';
 @endphp
 

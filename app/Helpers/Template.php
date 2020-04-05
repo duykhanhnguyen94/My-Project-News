@@ -75,7 +75,7 @@ class Template{
     //     </a>
     // </div>
     
-    public static function showButtonFilter($countItemnsStatus){
+    public static function showButtonFilter($countItemnsStatus, $controllerName){
         $xhtml = null;
         $tmplStatus = config('myConfig.template.status');
         if(count($countItemnsStatus) > 0){
@@ -88,11 +88,12 @@ class Template{
                 'count'  => array_sum(array_column($countItemnsStatus, 'count')),
                 'status' => 'all',
             ]);
-            foreach($countItemnsStatus as $value){
-                // dd($value);
-                $currentStatus = $tmplStatus[$value['status']]; // $value[$status] active, inactive, block
-                // dd($currentStatus);
-                $xhtml .= sprintf('<a href="#" type="button" class="btn btn-success">%s<span class="badge bg-white">%s</span></a>', $currentStatus['name'], $value['count']);
+            foreach($countItemnsStatus as $item){
+                $statusValue = $item['status']; // active inactive block
+                $statusValue = array_key_exists($statusValue, $tmplStatus) ? $statusValue : 'default';
+                $currentTemplateStatus = $tmplStatus[$statusValue];
+                $link = route($controllerName) . '?filter_status=' . $statusValue;
+                $xhtml .= sprintf('<a href="%s" type="button" class="btn btn-success">%s<span class="badge bg-white">%s</span></a>',$link, $currentTemplateStatus['name'], $item['count']);
             }
         }
         return $xhtml;
