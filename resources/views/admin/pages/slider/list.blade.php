@@ -30,7 +30,8 @@
                 $link        = $val['link']; 
                 $created  = Template::showItemsHistory($val['created_by'], $val['created']);
                 $modified = Template::showItemsHistory($val['modified_by'], $val['modified']);
-                $thumb = Template::showItemsThumb($val['thumb'], $val['name'])
+                $thumb = Template::showItemsThumb($val['thumb'], $val['name']);
+                $status = Template::showButtonStatus($val['status']);
             @endphp
             <tr class="odd pointer">
                 <td>{{$index}}</td>
@@ -44,8 +45,9 @@
                     </p>
                 </td>
                 <td>
-                    <a href="http://proj_news.xyz/admin123/slider/change-status-active/3" type="button" class="btn btn-round btn-success">
-                {{ $status }}</a></td>
+                    {!! $status !!}
+                    {{-- <a href="http://proj_news.xyz/admin123/slider/change-status-active/3" type="button" class="btn btn-round btn-success">active</a> --}}
+                </td>
                 <td>
                     {!! $created !!}
                 </td>
