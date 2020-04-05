@@ -1,4 +1,8 @@
 
+@php
+    use App\Helpers\Template as Template;
+@endphp
+
 <div class="x_content">
     <div class="table-responsive">
         <table class="table table-striped jambo_table bulk_action">
@@ -23,10 +27,12 @@
                 $status      = $val['status'];
                 $created     = $val['created'];
                 $created_by  = $val['created_by'];
-                $link        = $val['link'];
+                $link        = $val['link']; 
+                $created = Template::showItemsHistory($val['created_by'], $val['created']);
+                $modified = Template::showItemsHistory($val['modified_by'], $val['modified']);
             @endphp
             <tr class="odd pointer">
-                <td>1</td>
+                <td>{{$index}}</td>
                 <td width="40%">
                     <p><strong>Name:</strong>{{ $name }}</p>
                     <p><strong>Description:</strong>{{ $description }}</p>
@@ -36,12 +42,12 @@
                 <td><a href="http://proj_news.xyz/admin123/slider/change-status-active/3" type="button" class="btn btn-round btn-success">
                 {{ $status }}</a></td>
                 <td>
-                    <p><i class="fa fa-user"></i> admin</p>
-                    <p><i class="fa fa-clock-o"></i> 24/04/2019</p>
+                    {!! $created !!}
+                    {{-- <p><i class="fa fa-user"></i> admin</p>
+                    <p><i class="fa fa-clock-o"></i> 24/04/2019</p> --}}
                 </td>
                 <td>
-                    <p><i class="fa fa-user"></i> admin</p>
-                    <p><i class="fa fa-clock-o"></i> 24/04/2019</p>
+                    {!! $modified !!}
                 </td>
                 <td class="last">
                     <div class="zvn-box-btn-filter">
