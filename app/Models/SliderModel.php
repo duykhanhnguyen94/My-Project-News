@@ -15,11 +15,16 @@ class SliderModel extends Model
 
     public function listItems($params = null, $option){
         $result = null;
+        // echo '<pre style="color:red">';
+        // print_r($params);
+        // echo '</pre>';
         if($option['task'] == 'admin-list-item'){
-            $result = $this->select('s.id', 's.name', 's.description', 's.link', 's.thumb', 's.status', 's.created', 's.created_by', 's.modified', 's.modified_by')
+            $query = $this->select('s.id', 's.name', 's.description', 's.link', 's.thumb', 's.status', 's.created', 's.created_by', 's.modified', 's.modified_by');
             // ->where('id', '>', 4)
-            ->get()
-            ->toArray();
+            if(isset($params['filter']['status']) && $params['filter']['status'] != 'all'){
+                $query->where('status', '=', $params['filter']['status']);
+            }
+            $result = $query->get()->toArray();
         }
 
         return $result;
@@ -28,7 +33,7 @@ class SliderModel extends Model
     public function countItems($params = null, $option){
         $result = null;
         if($option['task'] == 'admin-count-item-group-by-status'){
-            $result = $this->select(DB::raw('count(id) as count, status'))
+            $result = $this->select(DB::raw('count(*) as count, status'))
             ->groupBy('status')
             ->get()
             ->toArray();
