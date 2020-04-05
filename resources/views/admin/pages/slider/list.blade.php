@@ -31,7 +31,7 @@
                 $created  = Template::showItemsHistory($val['created_by'], $val['created']);
                 $modified = Template::showItemsHistory($val['modified_by'], $val['modified']);
                 $thumb    = Template::showItemsThumb($val['thumb'], $val['name']);
-                $status   = Template::showButtonStatus($val['status']);
+                $status   = Template::showButtonStatus($val['id'], $controllerName, $val['status']);
             @endphp
             <tr class="odd pointer">
                 <td>{{$index}}</td>

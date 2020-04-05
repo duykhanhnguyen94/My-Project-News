@@ -17,7 +17,7 @@ class Template{
         return $xhtml;
     }
     // <img src="http://proj_news.xyz/images/slider/LWi6hINpXz.jpeg" alt="Ưu đãi học phí" class="zvn-thumb">
-    public static function showButtonStatus($statusValue){
+    public static function showButtonStatus($id, $controllerName, $statusValue){
         $xhtml = null;
         // $tmplStatus = [
         //     'active' => ['name' => 'Kích hoạt', 'class' => 'btn-success'],
@@ -32,8 +32,8 @@ class Template{
         // print_r($currentTemplateStatus);
         // echo '</pre>';
         // die('<p style="color:red">************** DIE HERE **************</p>');
-        $link = route('slider')
-        $xhtml = sprintf('<a href="#" type="button" class="btn btn-round %s">%s</a>', $currentTemplateStatus['class'], $currentTemplateStatus['name']);
+        $link = route($controllerName . '/status', ['id' => $id, 'status' => $statusValue]);
+        $xhtml = sprintf('<a href="%s" type="button" class="btn btn-round %s">%s</a>', $link, $currentTemplateStatus['class'], $currentTemplateStatus['name']);
         return $xhtml;
     }
     // <a href="http://proj_news.xyz/admin123/slider/change-status-active/3" type="button" class="btn btn-round btn-success">active</a>
