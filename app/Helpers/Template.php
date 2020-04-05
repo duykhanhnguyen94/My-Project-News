@@ -17,9 +17,23 @@ class Template{
         return $xhtml;
     }
     // <img src="http://proj_news.xyz/images/slider/LWi6hINpXz.jpeg" alt="Ưu đãi học phí" class="zvn-thumb">
-    public static function showButtonStatus($status){
+    public static function showButtonStatus($statusValue){
         $xhtml = null;
-        $xhtml = sprintf('<a href="#" type="button" class="btn btn-round btn-success">%s</a>', $status);
+        // $tmplStatus = [
+        //     'active' => ['name' => 'Kích hoạt', 'class' => 'btn-success'],
+        //     'inactive' => ['name' => 'Chưa kích hoạt', 'class' => 'btn-success'],
+        //     'block' => ['name' => 'Bị khóa', 'class' => 'btn-success'],
+        //     'default' => ['name' => 'Chưa xác định', 'class' => 'btn-success'],
+        // ];
+        $tmplStatus = config('myConfig.template.status');
+        $statusValue = array_key_exists($statusValue, $tmplStatus) ? $statusValue : 'default';
+        $currentTemplateStatus = $tmplStatus[$statusValue];
+        // echo '<pre style="color:red">';
+        // print_r($currentTemplateStatus);
+        // echo '</pre>';
+        // die('<p style="color:red">************** DIE HERE **************</p>');
+        $link = route('slider')
+        $xhtml = sprintf('<a href="#" type="button" class="btn btn-round %s">%s</a>', $currentTemplateStatus['class'], $currentTemplateStatus['name']);
         return $xhtml;
     }
     // <a href="http://proj_news.xyz/admin123/slider/change-status-active/3" type="button" class="btn btn-round btn-success">active</a>

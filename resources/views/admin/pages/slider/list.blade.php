@@ -30,8 +30,8 @@
                 $link        = $val['link']; 
                 $created  = Template::showItemsHistory($val['created_by'], $val['created']);
                 $modified = Template::showItemsHistory($val['modified_by'], $val['modified']);
-                $thumb = Template::showItemsThumb($val['thumb'], $val['name']);
-                $status = Template::showButtonStatus($val['status']);
+                $thumb    = Template::showItemsThumb($val['thumb'], $val['name']);
+                $status   = Template::showButtonStatus($val['status']);
             @endphp
             <tr class="odd pointer">
                 <td>{{$index}}</td>
