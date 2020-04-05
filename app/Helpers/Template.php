@@ -75,7 +75,7 @@ class Template{
     //     </a>
     // </div>
     
-    public static function showButtonFilter($countItemnsStatus, $controllerName){
+    public static function showButtonFilter($countItemnsStatus, $controllerName, $currentFilterStatus){
         $xhtml = null;
         $tmplStatus = config('myConfig.template.status');
         if(count($countItemnsStatus) > 0){
@@ -93,7 +93,9 @@ class Template{
                 $statusValue = array_key_exists($statusValue, $tmplStatus) ? $statusValue : 'default';
                 $currentTemplateStatus = $tmplStatus[$statusValue];
                 $link = route($controllerName) . '?filter_status=' . $statusValue;
-                $xhtml .= sprintf('<a href="%s" type="button" class="btn btn-success">%s<span class="badge bg-white">%s</span></a>',$link, $currentTemplateStatus['name'], $item['count']);
+                $class = ($currentFilterStatus == $statusValue) ? 'btn-danger' : 'btn-success';
+
+                $xhtml .= sprintf('<a href="%s" type="button" class="btn %s">%s<span class="badge bg-white">%s</span></a>', $link, $class, $currentTemplateStatus['name'], $item['count']);
             }
         }
         return $xhtml;

@@ -1,8 +1,9 @@
 
 @php
     use App\Helpers\Template as Template;
-    $xhtmlButtonFilter = Template::showButtonFilter($countItemsStatus, $controllerName); 
+    $xhtmlButtonFilter = Template::showButtonFilter($countItemsStatus, $controllerName, $params['filter']['status']); 
     // echo '************** this is a test **************';
+    // dd($params);
 @endphp
 
 @extends('admin.main')
