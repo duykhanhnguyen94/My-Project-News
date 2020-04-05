@@ -74,4 +74,39 @@ class Template{
     //         <i class="fa fa-trash"></i>
     //     </a>
     // </div>
+    
+    public static function showButtonFilter($countItemnsStatus){
+        $xhtml = null;
+        $tmplStatus = config('myConfig.template.status');
+        if(count($countItemnsStatus) > 0){
+            # Cách 1
+            // $all['count'] = 12;
+            // $all['status'] = 'All';
+            // array_unshift($countByStatus, $all); // Hàm thêm 1 phần tử vào đầu mảng 
+            # Cách 2
+            array_unshift($countItemnsStatus, [
+                'count'  => array_sum(array_column($countItemnsStatus, 'count')),
+                'status' => 'all',
+            ]);
+            foreach($countItemnsStatus as $value){
+                // dd($value);
+                $currentStatus = $tmplStatus[$value['status']]; // $value[$status] active, inactive, block
+                // dd($currentStatus);
+                $xhtml .= sprintf('<a href="#" type="button" class="btn btn-success">%s<span class="badge bg-white">%s</span></a>', $currentStatus['name'], $value['count']);
+            }
+        }
+        return $xhtml;
+    }
+    // <a href="?filter_status=all" type="button"
+    //     class="btn btn-primary">
+    // All <span class="badge bg-white">4</span>
+    // </a>
+    // <a href="?filter_status=active"
+    //     type="button" class="btn btn-success">
+    //     Active <span class="badge bg-white">2</span>
+    // </a>
+    // <a href="?filter_status=inactive"
+    //     type="button" class="btn btn-success">
+    //     Inactive <span class="badge bg-white">2</span>
+    // </a>
 }
