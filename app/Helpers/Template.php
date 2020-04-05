@@ -52,13 +52,14 @@ class Template{
         $listButton = $buttonInAera[$controllerName];   // ['edit', delete]
 
         $xhtml = '<div class="zvn-box-btn-filter">';
-        foreach($listButton as $btn){
-            $currentButton = $tmplButton[$btn];
+        foreach($listButton as $btn){   // $btn = edit, delete, view
+            $currentButton = $tmplButton[$btn];  // ['class'=>'btn-warning','title'=>'Edit','icon'=>'fa-pencil','route-name'=>'slider/form']
             // echo '<pre style="color:red">';
             // print_r($currentButton);
             // echo '</pre>';
-            $xhtml .= sprintf(' <a href="#" type="button" class="btn btn-icon %s" data-toggle="tooltip" data-placement="top" data-original-title="%s">
-            <i class="fa %s"></i></a>', $currentButton['class'], $currentButton['title'], $currentButton['icon']);
+            $link = route($currentButton['route-name'], ['id'=>$id]);
+            $xhtml .= sprintf(' <a href="%s" type="button" class="btn btn-icon %s" data-toggle="tooltip" data-placement="top" data-original-title="%s">
+            <i class="fa %s"></i></a>', $link, $currentButton['class'], $currentButton['title'], $currentButton['icon']);
         }
         $xhtml .= '</div>';
         return $xhtml;
