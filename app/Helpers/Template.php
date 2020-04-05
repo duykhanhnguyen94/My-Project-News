@@ -38,16 +38,18 @@ class Template{
     }
     // <a href="http://proj_news.xyz/admin123/slider/change-status-active/3" type="button" class="btn btn-round btn-success">active</a>
     public static function showButtonAction($id, $controllerName){
-        $tmplButton = [
-            'edit' => ['class'=>'btn-warning','title'=>'Edit','icon'=>'fa-pencil','route-name'=>'slider/form'],
-            'delete' => ['class'=>'btn-danger','title'=>'Delete','icon'=>'fa-trash','route-name'=>'slider/delete'],
-            'view' => ['class'=>'btn-info','title'=>'View','icon'=>'fa-eye','route-name'=>'slider/view'],
-        ];
-        $buttonInAera = [
+        // $tmplButton = [
+        //     'edit' => ['class'=>'btn-warning','title'=>'Edit','icon'=>'fa-pencil','route-name'=>'slider/form'],
+        //     'delete' => ['class'=>'btn-danger','title'=>'Delete','icon'=>'fa-trash','route-name'=>'slider/delete'],
+        //     'view' => ['class'=>'btn-info','title'=>'View','icon'=>'fa-eye','route-name'=>'slider/view'],
+        // ];
+        $tmplButton = config('myConfig.button');
+        // $buttonInAera = [
             // 'slider'  => ['edit', 'delete', 'view'],
-            'slider'  => ['edit', 'delete'],
-            'default' => ['edit', 'delete'],
-        ];
+            // 'slider'  => ['edit', 'delete'],
+            // 'default' => ['edit', 'delete'],
+        // ];
+        $buttonInAera = config('myConfig.config.button');
         $controllerName = array_key_exists($controllerName, $buttonInAera) ? $controllerName : 'default';
         $listButton = $buttonInAera[$controllerName];   // ['edit', delete]
 
@@ -57,7 +59,7 @@ class Template{
             // echo '<pre style="color:red">';
             // print_r($currentButton);
             // echo '</pre>';
-            $link = route($currentButton['route-name'], ['id'=>$id]);
+            $link = route($controllerName . $currentButton['route-name'], ['id'=>$id]);
             $xhtml .= sprintf(' <a href="%s" type="button" class="btn btn-icon %s" data-toggle="tooltip" data-placement="top" data-original-title="%s">
             <i class="fa %s"></i></a>', $link, $currentButton['class'], $currentButton['title'], $currentButton['icon']);
         }
