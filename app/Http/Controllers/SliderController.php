@@ -21,6 +21,8 @@ class SliderController extends Controller
     
     public function index(Request $request){
         $this->params['filter']['status'] = $request->input('filter_status');
+        $this->params['search']['field']  = $request->input('search_field');
+        $this->params['search']['value']  = $request->input('search_value');
         // dd($params);
         // $test = $this->model->listItems(null, ['task' => 'admin-list-item']);
         $items            = $this->model->listItems($this->params, ['task' => 'admin-list-item']);
@@ -35,4 +37,5 @@ class SliderController extends Controller
             'countItemsStatus' => $countItemsStatus,
         ]);
     }
+    
 }
