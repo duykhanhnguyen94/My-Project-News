@@ -115,10 +115,11 @@ class Template{
     public static function showAreaSearch($controllerName){
         $xhtml = null;
         $tmplField = config('myConfig.template.search');
-        $fieldInController = [
-            'default' => ['all', 'id', 'fullname'],
-            'slider' => ['all', 'id'],
-        ];
+        // $fieldInController = [
+            //     'default' => ['all', 'id', 'fullname'],
+            //     'slider' => ['all', 'id'],
+            // ];
+        $fieldInController = config('myConfig.config.search');
         $controllerName = array_key_exists($controllerName, $fieldInController) ? $controllerName : 'default';
         $xhtmlField = null;
         foreach($fieldInController[$controllerName] as $field){ // all id
@@ -143,7 +144,7 @@ class Template{
         </span>
         <input type="hidden" name="search_field" value="all">
         </div>', $xhtmlField);
-        
+
         return $xhtml; 
     }
 }

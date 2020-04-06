@@ -33,6 +33,10 @@ return [
         'button' => [
             'slider'  => ['edit', 'delete'],
             'default' => ['edit', 'delete'],
+        ],
+        'search' => [
+            'default' => ['all', 'id', 'fullname'],
+            'slider'  => ['all', 'id', 'description', 'link'],
         ]
     ], 
     'button' => [
