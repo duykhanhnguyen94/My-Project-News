@@ -2,6 +2,7 @@
 @php
     use App\Helpers\Template as Template;
     $xhtmlButtonFilter = Template::showButtonFilter($countItemsStatus, $controllerName, $params['filter']['status']); 
+    $xhtmlAreaSearch   = Template::showAreaSearch($controllerName); 
     // echo '************** this is a test **************';
     // dd($params);
 @endphp
@@ -27,20 +28,21 @@
                     <div class="col-md-6">
                         {!! $xhtmlButtonFilter !!}
                         {{-- <a href="?filter_status=all" type="button"
-                            class="btn btn-primary">
+                        class="btn btn-primary">
                         All <span class="badge bg-white">4</span>
-                        </a>
+                    </a>
                         <a href="?filter_status=active"
-                            type="button" class="btn btn-success">
-                            Active <span class="badge bg-white">2</span>
-                        </a>
+                        type="button" class="btn btn-success">
+                        Active <span class="badge bg-white">2</span>
+                    </a>
                         <a href="?filter_status=inactive"
-                            type="button" class="btn btn-success">
-                            Inactive <span class="badge bg-white">2</span>
-                        </a> --}}
-                    </div>
-                    <div class="col-md-6">
-                        <div class="input-group">
+                        type="button" class="btn btn-success">
+                        Inactive <span class="badge bg-white">2</span>
+                    </a> --}}
+                </div>
+                <div class="col-md-6">
+                    {!! $xhtmlAreaSearch !!}
+                        {{-- <div class="input-group">
                             <div class="input-group-btn">
                                 <button type="button"
                                         class="btn btn-default dropdown-toggle btn-active-field"
@@ -69,7 +71,7 @@
                         <button id="btn-search" type="button" class="btn btn-primary">Tìm kiếm</button>
                         </span>
                             <input type="hidden" name="search_field" value="all">
-                        </div>
+                        </div> --}}
                     </div>
                     {{-- <div class="col-md-2">
                         <select name="select_filter" class="form-control"
