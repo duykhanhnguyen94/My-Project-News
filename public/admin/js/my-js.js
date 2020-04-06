@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	let $btnSearch        = $("button#btn-search");
 	let $btnClearSearch	  = $("button#btn-clear");
-
+// event search
 	let $inputSearchField = $("input[name  = search_field]");
 	let $inputSearchValue = $("input[name  = search_value]");
 
@@ -18,7 +18,7 @@ $(document).ready(function() {
 		$("button.btn-active-field").html(fieldName + ' <span class="caret"></span>');
     	$inputSearchField.val(field);
 	});
-
+// handle button search
 	$btnSearch.click(function() {
 
 		var pathname	= window.location.pathname;
